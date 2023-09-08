@@ -15,7 +15,16 @@ function NavBar() {
               Home
             </Link>
           </li>
-          {/* ... Other navigation links ... */}
+          <li>
+            <Link to="/women" className="text-black font-normal hover:text-gray-200">
+              Women
+            </Link>
+          </li>
+          <li>
+            <Link to="/men" className="text-black font-normal hover:text-gray-200">
+              Men
+            </Link>
+          </li>
         </ul>
 
         <Link to="/" className="text-black text-lg font-normal">

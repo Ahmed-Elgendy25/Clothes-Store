@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import CarouselComponent from "../components/CarouselComponent";
 import Shop from "../components/Shop";
 import ShopCarousel from "../components/ShopCarousel";
+import ScrollTopButton from "../components/ScrollToTopButton";
+import Footer from "../components/Footer";
 
 //import photos//
 
@@ -47,11 +49,8 @@ function Shopping() {
 
       <ShopCarousel2 />
       <CartComponent />
-<<<<<<< HEAD
       <ScrollTopButton />
       <Footer/>
-=======
->>>>>>> c2c7bd691e6cc2603504a1d2e3603149e8ddeb15
     </div>
   );
 }
