@@ -14,22 +14,7 @@ function navBar() {
               Home
             </Link>
           </li>
-          <li>
-            <Link
-              to="/about"
-              className="text-black  font-normal hover:text-gray-200"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="text-black  font-normal hover:text-gray-200"
-            >
-              Contact
-            </Link>
-          </li>
+          {/* ... Other navigation links ... */}
         </ul>
 
         <Link to="/" className="text-black text-lg  font-normal  ">

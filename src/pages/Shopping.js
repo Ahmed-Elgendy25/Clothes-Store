@@ -21,6 +21,8 @@ import sweatShirt2 from "../photos/sweatMan2.webp";
 import pants from "../photos/shoes3.jpg";
 import ShopCarousel2 from "../components/ShopCarousel2";
 
+import CartComponent from "../components/CartComponent";
+
 function Shopping() {
   return (
     <div>
@@ -44,6 +46,9 @@ function Shopping() {
       />
 
       <ShopCarousel2 />
+      <CartComponent />
+      <ScrollTopButton />
+      <Footer/>
     </div>
   );
 }
