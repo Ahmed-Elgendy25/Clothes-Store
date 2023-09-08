@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 /* FOR shopCarousel.js COMPONENT */
 //MEN//
@@ -11,6 +11,10 @@ import shirt4 from "../photos/clothesMen/shirt4.jpg";
 import shirt5 from "../photos/clothesMen/shirt5.jpg";
 import trousiers from "../photos/clothesMen/trousiers.jpg";
 import jacket from "../photos/clothesMen/jacket.jpg";
+
+//CONTEXT//
+import { CartContext } from "../context/cart.js";
+import { v4 as uuidv4 } from "uuid";
 
 const responsive = {
   superLargeDesktop: {
@@ -32,39 +36,48 @@ const responsive = {
 };
 
 function ShopCarousel() {
+  const { addToCart } = useContext(CartContext);
+
   const [dataMen, setDataMen] = useState([
-    { image: shirt1, title: "Black T-Shirt", price: 722.12 },
+    { image: shirt1, title: "Black T-Shirt", price: 722.12, id: uuidv4() },
+
     {
       image: shirt2,
       title: "Mens Chinese Myth Print Lapel Collar Shirts",
-      price: 722.12,
+      price: 500.12,
+      id: uuidv4(),
     },
     {
       image: shirt3,
       title: "Mens Ethnic Geometric Printed Front Buttons Long Sleeve Jackets",
       price: 722.12,
+      id: uuidv4(),
     },
     {
       image: shirt4,
       title: "Mens Plaid Printed Corduroy Chest Pocket Buttons Shirt Jackets",
-      price: 722.12,
+      price: 800.12,
+      id: uuidv4(),
     },
     {
       image: shirt5,
       title:
         "Mens Side Stripe Character Embroidery Zip Jacket Corduroy Two Pieces Outfits",
       price: 665.9,
+      id: uuidv4(),
     },
     {
       image: trousiers,
       title: "Mens Contrast Piped Design Zip Pocket Street Cuffed Pants",
-      price: 722.12,
+      price: 650.12,
+      id: uuidv4(),
     },
     {
       image: jacket,
       title:
         "Mens Demon Face Letter Baseball Collar Pocket Long Sleeve Jackets",
-      price: 722.12,
+      price: 600.12,
+      id: uuidv4(),
     },
   ]);
 
@@ -126,21 +139,36 @@ function ShopCarousel() {
                     hoverIndex === index ? "opacity-100" : "opacity-0"
                   } transition-opacity duration-300 ease-in-out`}
                 >
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>S</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>M</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>L</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>XL</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center  bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>XXL</span>
-                  </div>
+                  <button
+                    onClick={() => addToCart(item, "S")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    S
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "M")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    M
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "L")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    L
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "XL")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    XL
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "XXL")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    XXL
+                  </button>
                 </div>
               )}
             </div>

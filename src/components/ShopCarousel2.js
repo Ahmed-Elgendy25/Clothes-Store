@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
 //WOMEN//
@@ -12,6 +12,9 @@ import womanSweat4 from "../photos/clothesWoman/sweat4.jpg";
 import womanTee from "../photos/clothesWoman/tee1.jpg";
 import womanTee2 from "../photos/clothesWoman/tee2.jpg";
 import womanTee3 from "../photos/clothesWoman/tee3.jpg";
+
+import { CartContext } from "../context/cart.js";
+import { v4 as uuidv4 } from "uuid";
 
 const responsive = {
   superLargeDesktop: {
@@ -33,42 +36,51 @@ const responsive = {
 };
 
 function ShopCarousel2() {
+  const { addToCart } = useContext(CartContext);
   const [dataWomen, setDataWomen] = useState([
     {
       image: womanSweat,
       title: "Halloween Dropped Shoulder Drawstring Long Sleeve Crop Hoodie",
       price: 251.06,
+      id: uuidv4(),
     },
     {
       image: womanSweat2,
       title:
         "Solid Dropped Shoulder Kangaroo Pocket Long Sleeve Halloween Hoodie",
       price: 1317.73,
+      id: uuidv4(),
     },
     {
       image: womanSweat3,
       title: "Cross Geometric Pattern Crew Neck Long Sleeve Loose Sweatshir ",
       price: 211.83,
+      id: uuidv4(),
     },
     {
       image: womanSweat4,
       title: "Tribal Pattern Patchwork Long Sleeve Crew Neck Sweatshirt ",
       price: 815.62,
+      id: uuidv4(),
     },
     {
       image: womanTee,
       title: "Car Letters Graphic Short Sleeve Loose Crew Neck T-shirt",
       price: 595.94,
+      id: uuidv4(),
     },
     {
       image: womanTee2,
       title: "Butterfly Graphic Short Sleeve Crew Neck Casual T-shirt",
       price: 627.32,
+
+      id: uuidv4(),
     },
     {
       image: womanTee3,
       title: "Solid Half-collar Long Sleeve T-shirt For Women",
       price: 815.62,
+      id: uuidv4(),
     },
   ]);
 
@@ -130,21 +142,36 @@ function ShopCarousel2() {
                     hoverIndex === index ? "opacity-100" : "opacity-0"
                   } transition-opacity duration-300 ease-in-out`}
                 >
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>S</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>M</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>L</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>XL</span>
-                  </div>
-                  <div className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center  bg-slate-100 hover:bg-black hover:text-slate-100">
-                    <span>XXL</span>
-                  </div>
+                  <button
+                    onClick={() => addToCart(item, "S")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    S
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "M")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    M
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "L")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    L
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "XL")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    XL
+                  </button>
+                  <button
+                    onClick={() => addToCart(item, "XXL")}
+                    className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                  >
+                    XXL
+                  </button>
                 </div>
               )}
             </div>
@@ -163,7 +190,6 @@ function ShopCarousel2() {
     </Carousel>
   );
 }
-
 export default ShopCarousel2;
 
 //E£

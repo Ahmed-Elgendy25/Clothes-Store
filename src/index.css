@@ -6,4 +6,11 @@
   font-family: "Lemon/Milk", "Lemon/Milk light", sans-serif;
 }
 
-/* In your CSS stylesheet or a style block */
+/*Arrow of carousel*/
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+  z-index: 0;
+}
+
+.slick-active button {
+  z-index: 0;
+}
