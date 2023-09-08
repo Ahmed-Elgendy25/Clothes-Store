@@ -47,8 +47,11 @@ function Shopping() {
 
       <ShopCarousel2 />
       <CartComponent />
+<<<<<<< HEAD
       <ScrollTopButton />
       <Footer/>
+=======
+>>>>>>> c2c7bd691e6cc2603504a1d2e3603149e8ddeb15
     </div>
   );
 }
