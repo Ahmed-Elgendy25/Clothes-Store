@@ -1,6 +1,6 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
-import { notifySuccess } from '../components/notification';
+import { notifySuccess } from "../components/notification";
 
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
@@ -32,12 +32,20 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = (item) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id)); // if the quantity of the item is 1, remove the item from the cart
+  const removeFromCart = (productToRemove) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter(
+        (item) =>
+          item.id !== productToRemove.id ||
+          item.size !== productToRemove.size ||
+          item.title !== productToRemove.title
+      )
+    );
   };
+
   const updateQuantity = (product, newQuantity) => {
     if (newQuantity === 0) {
-      removeFromCart(product);
+      removeFromCart(product); // This function removes the item from the cart
     } else {
       setCartItems((prevCartItems) =>
         prevCartItems.map((cartItem) =>

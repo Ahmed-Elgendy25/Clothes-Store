@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 const womanSweat = require("../photos/clothesWoman/sweat1.jpg");
 const womanSweat2 = require("../photos/clothesWoman/sweat2.jpg");
 const womanSweat3 = require("../photos/clothesWoman/sweat3.jpg");
@@ -13,62 +14,74 @@ const shirt5 = require("../photos/clothesMen/shirt5.jpg");
 export const initialProducts = [
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: womanSweat,
+    price: 49.99,
+    image: womanSweat,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
-    price: "$59.99",
-    imageSrc: womanSweat2,
+    price: 59.99,
+    image: womanSweat2,
+    id: uuidv4(),
   },
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: womanSweat3,
+    price: 49.99,
+    image: womanSweat3,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
-    price: "$59.99",
-    imageSrc: womanSweat4,
+    price: 59.99,
+    image: womanSweat4,
+    id: uuidv4(),
   },
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: womanTee,
+    price: 49.99,
+    image: womanTee,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
-    price: "$59.99",
-    imageSrc: womanTee2,
+    price: 59.99,
+    image: womanTee2,
+    id: uuidv4(),
   },
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: womanTee3,
+    price: 49.99,
+    image: womanTee3,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
     price: "$59.99",
-    imageSrc: shirt5,
+    image: shirt5,
+    id: uuidv4(),
   },
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: shirt4,
+    price: 49.99,
+    image: shirt4,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
-    price: "$59.99",
-    imageSrc: shirt3,
+    price: 59.99,
+    image: shirt3,
+    id: uuidv4(),
   },
   {
     title: "Cycling Bib Shorts",
-    price: "$49.99",
-    imageSrc: shirt2,
+    price: 49.99,
+    image: shirt2,
+    id: uuidv4(),
   },
   {
     title: "Cycling Tights",
-    price: "$59.99",
-    imageSrc: shirt1,
+    price: 59.99,
+    image: shirt1,
+    id: uuidv4(),
   },
 ];

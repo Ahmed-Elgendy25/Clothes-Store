@@ -16,7 +16,7 @@ export default function WomenDetails() {
         <div className="bg-white rounded-lg p-5 flex flex-col sm:flex-row items-center">
           <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
             <img
-              src={productDetails.imageSrc}
+              src={productDetails.image}
               alt={productDetails.title}
               className="h-2/4 w-2/4 mx-auto sm:mx-0"
             />

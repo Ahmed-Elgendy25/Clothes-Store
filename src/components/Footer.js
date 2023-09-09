@@ -1,33 +1,31 @@
 import React from "react";
+import {
+  UilFacebook,
+  UilTwitter,
+  UilInstagram,
+} from "@iconscout/react-unicons";
 
 export default function Footer() {
   return (
     <>
-      <footer className="bg-gray-900 text-white">
+      <footer className="bg-black text-white">
         <section className="container mx-auto py-8">
-          <div className="lg:flex md:flex sm:flex lg:justify-between md:justify-between sm:justify-center">
+          <div className="lg:flex md:flex sm:flex lg:justify-between md:justify-between sm:justify-center flex-wrap">
             <div className="mb-4 lg:w-1/4 md:w-1/4 sm:w-full">
               <div className="mb-4">
                 <h4 className="text-lg font-semibold">Customer services</h4>
                 <ul className="mt-2">
                   <li>
-                    <a href="#">Find a Store</a>
+                    <a href="#" className="text-sm">
+                      Find a Store
+                    </a>
                   </li>
                   <li>
-                    <a href="#">FAQ</a>
+                    <a href="#" className="text-sm">
+                      FAQ
+                    </a>
                   </li>
-                  <li>
-                    <a href="#">Shipping</a>
-                  </li>
-                  <li>
-                    <a href="#">Returns</a>
-                  </li>
-                  <li>
-                    <a href="#">Repair Service</a>
-                  </li>
-                  <li>
-                    <a href="#">Product Care</a>
-                  </li>
+                  {/* Add more customer service links here */}
                 </ul>
               </div>
             </div>
@@ -36,36 +34,30 @@ export default function Footer() {
                 <h4 className="text-lg font-semibold">Information</h4>
                 <ul className="mt-2">
                   <li>
-                    <a href="https://iti.gov.eg/iti/home">About ITI</a>
-                  </li>
-                  <li>
-                    <a href="https://iti.gov.eg/iti/home">Work at ITI</a>
-                  </li>
-                  <li>
-                    <a href="https://iti.gov.eg/iti/home">
-                      Industry Purchase Program
+                    <a href="https://iti.gov.eg/iti/home" className="text-sm">
+                      About ITI
                     </a>
                   </li>
                   <li>
-                    <a href="https://iti.gov.eg/iti/home">Press Enquiries</a>
+                    <a href="https://iti.gov.eg/iti/home" className="text-sm">
+                      Work at ITI
+                    </a>
                   </li>
-                  <li>
-                    <a href="https://iti.gov.eg/iti/home">Privacy Policy</a>
-                  </li>
+                  {/* Add more information links here */}
                 </ul>
               </div>
             </div>
             <div className="mb-4 lg:w-1/4 md:w-1/4 sm:w-full">
               <div className="mb-4">
                 <h4 className="text-lg font-semibold">Follow ITI</h4>
-                <div className="mt-2">
+                <div className="mt-2 flex">
                   <a
                     href="https://www.facebook.com/ITI.eg"
                     target="_blank"
                     className="mr-4 "
                     rel="noopener"
                   >
-                    Facebook
+                    <UilFacebook />
                   </a>
                   <a
                     href="https://www.instagram.com/iti.channel/"
@@ -73,7 +65,7 @@ export default function Footer() {
                     className="mr-4 "
                     rel="noopener"
                   >
-                    Instagram
+                    <UilInstagram />
                   </a>
                   <a
                     href="https://twitter.com/iti_channel?lang=en"
@@ -81,14 +73,14 @@ export default function Footer() {
                     className="mr-4 "
                     rel="noopener"
                   >
-                    Twitter
+                    <UilTwitter />
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-8">
-            <p className="text-center">
+          <div className="mt-8 text-center">
+            <p className="text-sm">
               © ITI Racing Limited 2023. All rights reserved.
             </p>
           </div>

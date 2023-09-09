@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ScrollTopButton from "../components/ScrollToTopButton";
-import { useParams, Link } from "react-router-dom";
-import { initialProducts } from "../components/MenProducts";
 
+import { Link } from "react-router-dom";
+import { initialProducts } from "../components/MenProducts";
+import { notifySuccess } from "../components/notification";
+// CONTEXT
+import { CartContext } from "../context/cart.js";
+import CartComponent from "../components/CartComponent";
 export default function Men() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchFixed, setIsSearchFixed] = useState(false);
   const [products, setProducts] = useState(initialProducts);
   const [showSizes, setShowSizes] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(null);
-
+  const { addToCart } = useContext(CartContext);
+  const handleClick = () => {
+    notifySuccess("Added to cart successfully");
+  };
   const handleSearch = (e) => {
     const searchText = e.target.value.toLowerCase();
     setSearchTerm(searchText);
@@ -54,7 +60,7 @@ export default function Men() {
         </div>
       </section>
       <div
-        className={` flex justify-center p-4 ${
+        className={`flex justify-center p-4 ${
           isSearchFixed
             ? "fixed top-0 left-0 right-0 bg-white shadow-md z-50"
             : ""
@@ -72,75 +78,104 @@ export default function Men() {
       </div>
       <section className="mt-15">
         <div className="p-9">
-          <div className="flex flex-wrap  justify-center p-20 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {products.map((product, index) => (
-              <Link key={index} to={`/Men/${index}`}>
-                <div
-                  key={index}
-                  onMouseEnter={() => {
-                    setHoverIndex(index);
-                  }}
-                  onMouseLeave={() => {
-                    setHoverIndex(null);
-                  }}
-                  className="p-8 m-2 border border-gray-300 rounded-lg"
-                >
-                  <div className="relative">
+              <div
+                key={index}
+                onMouseEnter={() => {
+                  setHoverIndex(index);
+                }}
+                onMouseLeave={() => {
+                  setHoverIndex(null);
+                }}
+                className="p-8 border border-gray-300 rounded-lg h-full flex flex-col items-center justify-evenly space-y-3 mx-3 md:px-10 relative"
+              >
+                <div className="relative">
+                  <Link key={index} to={`/Women/${index}`}>
                     <img
                       src={product.image}
                       alt={product.title}
-                      className="w-44 h-50 object-cover rounded-full mx-auto"
+                      className="w-full md:max-w-[30rem] object-cover"
                     />
-                    <div
-                      onMouseEnter={() => setShowSizes(true)}
-                      onMouseLeave={() => setShowSizes(false)}
-                    >
-                      {showSizes === false ? (
-                        <div
-                          className={`absolute w-full left-0 bottom-0 flex justify-center items-center p-2 bg-black text-white ${
-                            hoverIndex === index ? "opacity-100" : "opacity-0"
-                          } transition-opacity duration-300 ease-in-out`}
+                  </Link>
+
+                  <div
+                    onMouseEnter={() => setShowSizes(true)}
+                    onMouseLeave={() => setShowSizes(false)}
+                  >
+                    {showSizes === false ? (
+                      <div
+                        className={`absolute w-full left-0 bottom-0 flex justify-center items-center p-2 bg-black text-white ${
+                          hoverIndex === index ? "opacity-100" : "opacity-0"
+                        } transition-opacity duration-300 ease-in-out`}
+                      >
+                        <span>+ Quick Add</span>
+                      </div>
+                    ) : (
+                      <div
+                        className={`absolute w-full left-0 bottom-0 flex justify-center space-x-0 items-center p-2 bg-transparent text-black ${
+                          hoverIndex === index ? "opacity-100" : "opacity-0"
+                        } transition-opacity duration-300 ease-in-out`}
+                      >
+                        <button
+                          onClick={() => {
+                            addToCart(product, "S");
+                            handleClick();
+                          }}
+                          className="border-2 border-black p-[5px] w-full md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                         >
-                          <span>+ Quick Add</span>
-                        </div>
-                      ) : (
-                        <div
-                          className={`absolute w-full left-0 bottom-0 flex justify-center space-x-0 items-center p-2 bg-transparent text-black ${
-                            hoverIndex === index ? "opacity-100" : "opacity-0"
-                          } transition-opacity duration-300 ease-in-out`}
+                          S
+                        </button>
+                        <button
+                          onClick={() => {
+                            addToCart(product, "M");
+                            handleClick();
+                          }}
+                          className="border-2 border-black p-[5px] w-full md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                         >
-                          <div className="border-2 border-black p-[5px] w-[20%] md:w-[20%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                            <span>S</span>
-                          </div>
-                          <div className="border-2 border-black p-[5px] w-[20%] md:w-[20%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                            <span>M</span>
-                          </div>
-                          <div className="border-2 border-black p-[5px] w-[20%] md:w-[20%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                            <span>L</span>
-                          </div>
-                          <div className="border-2 border-black p-[5px] w-[20%] md:w-[20%] text-center bg-slate-100 hover:bg-black hover:text-slate-100">
-                            <span>XL</span>
-                          </div>
-                          <div className="border-2 border-black p-[5px] w-[20%] md:w-[30%] text-center  bg-slate-100 hover:bg-black hover:text-slate-100">
-                            <span>XXL</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                          M
+                        </button>
+                        <button
+                          onClick={() => {
+                            addToCart(product, "L");
+                            handleClick();
+                          }}
+                          className="border-2 border-black p-[5px] w-full md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                        >
+                          L
+                        </button>
+                        <button
+                          onClick={() => {
+                            addToCart(product, "XL");
+                            handleClick();
+                          }}
+                          className="border-2 border-black p-[5px] w-full md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                        >
+                          XL
+                        </button>
+                        <button
+                          onClick={() => {
+                            addToCart(product, "XXL");
+                            handleClick();
+                          }}
+                          className="border-2 border-black p-[5px] w-full md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
+                        >
+                          XXL
+                        </button>
+                      </div>
+                    )}
                   </div>
-                  <h2 className="text-lg text-center font-semibold pt-4">
-                    {product.title}
-                  </h2>
-                  <p className="text-lg font-bold text-center">
-                    {product.price}
-                  </p>
                 </div>
-              </Link>
+                <h2 className="text-lg text-center font-semibold pt-4">
+                  {product.title}
+                </h2>
+                <p className="text-lg font-bold text-center">{product.price}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
-      <ScrollTopButton />
+      <CartComponent />
       <Footer />
     </>
   );
