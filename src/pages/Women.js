@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 import ScrollTopButton from "../components/ScrollToTopButton";
 import { useParams, Link } from "react-router-dom";
 import { initialProducts } from "../components/WomenProducts";

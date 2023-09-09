@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
+import { notifySuccess } from '../components/notification';
 
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {

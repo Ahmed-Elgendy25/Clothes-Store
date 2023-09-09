@@ -2,6 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { notifySuccess } from "../components/notification";
 
 //WOMEN//
 
@@ -36,6 +37,9 @@ const responsive = {
 };
 
 function ShopCarousel2() {
+  const handleClick = () => {
+    notifySuccess("Added to cart successfully");
+  };
   const { addToCart } = useContext(CartContext);
   const [dataWomen, setDataWomen] = useState([
     {
@@ -143,31 +147,47 @@ function ShopCarousel2() {
                   } transition-opacity duration-300 ease-in-out`}
                 >
                   <button
-                    onClick={() => addToCart(item, "S")}
+                    onClick={() => {
+                      addToCart(item, "S");
+                      handleClick();
+                    }}
                     className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                   >
                     S
                   </button>
+
                   <button
-                    onClick={() => addToCart(item, "M")}
+                    onClick={() => {
+                      addToCart(item, "M");
+                      handleClick();
+                    }}
                     className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                   >
                     M
                   </button>
                   <button
-                    onClick={() => addToCart(item, "L")}
+                    onClick={() => {
+                      addToCart(item, "L");
+                      handleClick();
+                    }}
                     className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                   >
                     L
                   </button>
                   <button
-                    onClick={() => addToCart(item, "XL")}
+                    onClick={() => {
+                      addToCart(item, "XL");
+                      handleClick();
+                    }}
                     className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                   >
                     XL
                   </button>
                   <button
-                    onClick={() => addToCart(item, "XXL")}
+                    onClick={() => {
+                      addToCart(item, "XXL");
+                      handleClick();
+                    }}
                     className="border-2 border-black p-[5px] w-[20%] md:w-[15%] text-center bg-slate-100 hover:bg-black hover:text-slate-100"
                   >
                     XXL

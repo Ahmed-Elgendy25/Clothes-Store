@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 // Check If Element Is In Viewport
 const isInViewport = (element) => {
   const rect = element.getBoundingClientRect();
@@ -46,10 +47,10 @@ const ScrollTopButton = () => {
     <>
       {showButton && (
         <div
-          className="fixed bottom-10 right-10 p-2 rounded-full  bg-black hover:bg-pink-500 cursor-pointer transition duration-300"
+          className="fixed bottom-10 right-10 p-4 rounded-full  bg-black hover:bg-pink-500 cursor-pointer transition duration-300"
           onClick={scrollToTop}
         >
-          <i className="fas fa-arrow-up text-white text-xl"></i>
+        <FontAwesomeIcon icon={faArrowUp} className="text-white text-xl" />
         </div>
       )}
     </>
