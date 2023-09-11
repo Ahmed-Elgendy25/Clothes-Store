@@ -91,7 +91,7 @@ export default function Men() {
                 className="p-8 border border-gray-300 rounded-lg h-full flex flex-col items-center justify-evenly space-y-3 mx-3 md:px-10 relative"
               >
                 <div className="relative">
-                  <Link key={index} to={`/Women/${index}`}>
+                  <Link key={index} to={`/Men/${index}`}>
                     <img
                       src={product.image}
                       alt={product.title}

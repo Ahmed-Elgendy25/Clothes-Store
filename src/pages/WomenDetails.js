@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ScrollTopButton from "../components/ScrollToTopButton";
+
 import { initialProducts } from "../components/WomenProducts";
 import { CartContext } from "../context/cart.js";
 import { notifySuccess } from "../components/notification";
@@ -29,7 +29,8 @@ export default function WomenDetails() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-5">
+
+      <div className=" mx-auto p-5">
         <div className="bg-white rounded-lg p-5 flex flex-col sm:flex-row items-center">
           <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
             <img
@@ -111,8 +112,8 @@ export default function WomenDetails() {
         </div>
       </div>
 
-      <ScrollTopButton />
       <CartComponent />
+
       <Footer />
     </>
   );
