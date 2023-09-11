@@ -3,7 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { notifySuccess } from "../components/notification";
-
+import { Link } from "react-router-dom";
 //WOMEN//
 
 import womanSweat from "../photos/clothesWoman/sweat1.jpg";
@@ -123,11 +123,14 @@ function ShopCarousel2() {
           }}
         >
           <div className="relative">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full md:max-w-[30rem]  object-cover"
-            />
+            <Link key={index} to={`/Women/${index}`}>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full md:max-w-[30rem]  object-cover"
+              />
+            </Link>
+
             <div
               onMouseEnter={() => setShowSizes(true)}
               onMouseLeave={() => setShowSizes(false)}
