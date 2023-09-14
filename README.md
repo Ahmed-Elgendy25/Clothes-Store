@@ -2,7 +2,8 @@
 
 Welcome to the Clothes Store GitHub repository! This repository contains the source code for a simple online clothing store with several key features, including a shopping cart, a carousel for product display, and the ability to select sizes for products. 
 ![image](https://github.com/Ahmed-Elgendy25/Clothes-Store/assets/108876019/53bacb92-adc2-4943-bb93-888562c5b866)
-![image](https://github.com/Ahmed-Elgendy25/Clothes-Store/assets/108876019/8c5c2fcb-e5eb-4a96-87d6-80658260e447)
+![image](https://github.com/Ahmed-Elgendy25/Clothes-Store/assets/108876019/eaf8614d-4fae-40c3-8108-6a71cc9d0025)
+
 
 ![image](https://github.com/Ahmed-Elgendy25/Clothes-Store/assets/108876019/5c370762-4d94-49aa-87bc-d0e10e8413aa)
 
